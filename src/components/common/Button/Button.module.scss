@@ -1,0 +1,18 @@
+.button {
+  height: 40px;
+  width: 100%;
+  background: inherit;
+  border: 1px solid gray;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: lightgray;
+  }
+}
+
+.active {
+  background-color: darkgray;
+}

@@ -1,0 +1,27 @@
+.product-item {
+  display: block;
+  max-width: 300px;
+  border: 1px solid gray;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 0 gray;
+
+  .image {
+    height: 200px;
+    width: 100%;
+  }
+
+  .title {
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-left: 200px;
+}

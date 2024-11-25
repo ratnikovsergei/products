@@ -1,0 +1,23 @@
+.sideBar {
+  width: 170px;
+  border: 2px solid gray;
+  border-radius: 8px;
+  padding: 10px;
+  max-height: max-content;
+  position: fixed;
+  .input {
+    width: 98%;
+    height: 30px;
+    display: block;
+    margin: 8px auto;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+}
