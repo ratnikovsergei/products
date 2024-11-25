@@ -25,3 +25,21 @@
   gap: 8px;
   margin-left: 200px;
 }
+
+.edit-button {
+  background: url("/edit-button.png");
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-button {
+  background: url("/delete-button.png");
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+}

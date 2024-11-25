@@ -8,7 +8,11 @@ interface ProductProps {
   onChangePrice?: () => void;
 }
 
-export const ProductItem: React.FC<ProductProps> = ({ product }) => {
+export const ProductItem: React.FC<ProductProps> = ({
+  product,
+  onDelete,
+  onChangePrice,
+}) => {
   return (
     <div className={styles["product-item"]}>
       <img className={styles.image} src={product.image} alt="iproduct-img" />
@@ -16,6 +20,14 @@ export const ProductItem: React.FC<ProductProps> = ({ product }) => {
         <h3 className={styles.title}>{product.title}</h3>
         <p>${product.price}</p>
         <p>{product.company}</p>
+        <button
+          className={styles["edit-button"]}
+          onClick={() => onDelete}
+        ></button>
+        <button
+          className={styles["delete-button"]}
+          onClick={onChangePrice}
+        ></button>
       </div>
     </div>
   );

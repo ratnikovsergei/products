@@ -4,11 +4,14 @@ import { Product } from "model";
 import { getData } from "./mock";
 import { SideBar } from "@components/SideBar/SideBar";
 import { ProductList } from "./components";
+import useDebounce from "./hooks/useDebounce";
 
 function App() {
   const [products, setProducts] = useState<Product[] | []>([]);
   const [activeFilter, setActiveFilter] = useState<string>("all");
   const [search, setSearch] = useState<string>("");
+
+  const debouncedSearchValue = useDebounce(search, 500);
 
   useEffect(() => {
     getData().then((data) => setProducts(data as Product[]));
@@ -30,7 +33,7 @@ function App() {
 
   const filteredProducts = search
     ? products.filter((product) =>
-        product.title.toLowerCase().includes(search.toLowerCase())
+        product.title.toLowerCase().includes(debouncedSearchValue)
       )
     : activeFilter === "all"
       ? products
