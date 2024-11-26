@@ -4,8 +4,8 @@ import styles from "./Product.module.scss";
 
 interface ProductProps {
   product: Product;
-  onDelete?: (id: Product["id"]) => void;
-  onChangePrice?: () => void;
+  onDelete: (id: Product["id"]) => void;
+  onChangePrice: (id: Product["id"]) => void;
 }
 
 export const ProductItem: React.FC<ProductProps> = ({
@@ -21,12 +21,12 @@ export const ProductItem: React.FC<ProductProps> = ({
         <p>${product.price}</p>
         <p>{product.company}</p>
         <button
-          className={styles["edit-button"]}
-          onClick={onChangePrice}
+          className={styles["delete-button"]}
+          onClick={() => onDelete(product.id)}
         ></button>
         <button
-          className={styles["delete-button"]}
-          onClick={() => onDelete?.(product.id)}
+          className={styles["edit-button"]}
+          onClick={() => onChangePrice(product.id)}
         ></button>
       </div>
     </div>

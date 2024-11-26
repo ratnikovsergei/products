@@ -36,6 +36,19 @@ function App() {
     );
   };
 
+  const handleChangePrice = (id: string) => {
+    const newPrice = prompt("Новая цену товара:");
+    if (newPrice) {
+      setProducts((prevProducts) =>
+        prevProducts.map((product) =>
+          product.id === id
+            ? { ...product, price: parseFloat(newPrice) }
+            : product
+        )
+      );
+    }
+  };
+
   const filteredProducts = search
     ? products.filter((product) =>
         product.title.toLowerCase().includes(debouncedSearchValue)
@@ -46,7 +59,7 @@ function App() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Products Filter</h1>
+      <h1 className={styles.title}>Product List</h1>
       <div className={styles.wrapper}>
         <SideBar
           searchChange={setSearch}
@@ -56,7 +69,11 @@ function App() {
           activeFilter={activeFilter}
         />
         <main>
-          <ProductList list={filteredProducts} onDelete={handleDeleteItem} />
+          <ProductList
+            list={filteredProducts}
+            onDelete={handleDeleteItem}
+            onChangePrice={handleChangePrice}
+          />
         </main>
       </div>
     </div>
