@@ -22,11 +22,11 @@ export const ProductItem: React.FC<ProductProps> = ({
         <p>{product.company}</p>
         <button
           className={styles["edit-button"]}
-          onClick={() => onDelete}
+          onClick={onChangePrice}
         ></button>
         <button
           className={styles["delete-button"]}
-          onClick={onChangePrice}
+          onClick={() => onDelete?.(product.id)}
         ></button>
       </div>
     </div>

@@ -5,9 +5,10 @@ import styles from "./Product.module.scss";
 
 interface ProductListProps {
   list: Product[];
+  onDelete: (id: Product["id"]) => void;
 }
 
-export const ProductList: React.FC<ProductListProps> = ({ list }) => {
+export const ProductList: React.FC<ProductListProps> = ({ list, onDelete }) => {
   return (
     <div className={styles["product-list"]}>
       {list.length === 0 ? (
@@ -16,7 +17,7 @@ export const ProductList: React.FC<ProductListProps> = ({ list }) => {
         </p>
       ) : (
         list.map((product) => (
-          <ProductItem product={product} key={product.id} />
+          <ProductItem product={product} key={product.id} onDelete={onDelete} />
         ))
       )}
     </div>
